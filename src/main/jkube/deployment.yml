@@ -1,0 +1,33 @@
+
+spec:
+  template:
+    spec:
+      containers:
+        - 
+          resources:
+            requests:
+              cpu: "0.2"
+              memory: 256Mi
+            limits:
+              cpu: "1.0"
+              memory: 256Mi
+          env:
+          - name: SPRING_APPLICATION_JSON
+            value: '{"server":{"undertow":{"io-threads":1, "worker-threads":2 }}}'
+          - name: DB_SERVICE_NAME
+            value: 'localhost'
+          - name: DATABASE_PORT
+            value: '5432'
+          - name: DATABASE_NAME
+            value: 'moss_db'
+          - name: DB_USER_NAME
+            value: 'postgres'
+          - name: DB_USER_PASSWORD
+            value: 'admin'
+          - name: POSTGRES_SSL
+            value: 'false'
+          - name: sslmode
+            value: 'allow'
+
+
+       
