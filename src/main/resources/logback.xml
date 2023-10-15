@@ -2,28 +2,30 @@
 <!DOCTYPE xml>
 <configuration>
 
-  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-    <!-- encoders are assigned the type
-         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
-    <encoder>
-      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-    </encoder>
-  </appender>
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+			by default -->
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<!-- Existing appender references -->
+	</root>
+	
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>/var/log/pods/fuse-integrator.log </file>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
 
-    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-      <file>/var/log/fuse-integrator.log </file>
-      <append>true</append>
-       <encoder>
-      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-    </encoder>
-
-      <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>info</level>
-      </filter>
-    </appender>
-
-  <root level="info">
-    <appender-ref ref="STDOUT" />
-  </root>
+	<root level="info">
+		<appender-ref ref="FILE" />
+	</root>
 
 </configuration>
