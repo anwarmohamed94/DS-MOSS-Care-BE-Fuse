@@ -17,7 +17,7 @@
 	</root>
 	
 	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
-		<file>/var/log/pods/test/log1/fuse-integrator.log </file>
+		<file>/var/log/pods/fuse-integrator.log </file>
 		<append>true</append>
 		<encoder>
 			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
